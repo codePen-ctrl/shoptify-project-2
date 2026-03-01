@@ -4,7 +4,7 @@ const Context = createContext(null);
 
 export default function ApiContext({ children }) {
 
-    const BASE_URL = 'http://192.168.100.4:3000';
+    const BASE_URL = 'https://api-shoptify.onrender.com/';
 
     const getAPI = async ({ endpoint, type = "json"}) => {
         try {
