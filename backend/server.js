@@ -22,7 +22,7 @@ app.use(cors({
 
 app.use(express.json({ limit: '50mb' }));
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 const secret_key = process.env.SECRET_KEY;
 
 const db_host = process.env.DB_HOST;
