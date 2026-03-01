@@ -32,7 +32,7 @@ const gmail_acc = process.env.gmail_acc;
 const gmail_pass = process.env.gmail_pass;
 
 //database name
-const db_name = 'POS_Database';
+const db_name = process.env.DB_NAME;
 
 //mail sent congig
 const postman = mailer.createTransport({
