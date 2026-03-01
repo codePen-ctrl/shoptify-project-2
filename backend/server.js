@@ -25,15 +25,6 @@ app.use(express.json({ limit: '50mb' }));
 const port = process.env.PORT || 5000;
 const secret_key = process.env.SECRET_KEY;
 
-const db_host = process.env.DB_HOST;
-const db_user = process.env.DB_USER;
-const db_password = process.env.DB_PASSWORD;
-const gmail_acc = process.env.gmail_acc;
-const gmail_pass = process.env.gmail_pass;
-
-//database name
-const db_name = process.env.DB_NAME;
-
 //mail sent congig
 const postman = mailer.createTransport({
     service: 'gmail',
@@ -150,17 +141,11 @@ const checkToken = (token) => {
 // ========================
 // INIT DATABASE
 // ========================
+const DbUrl = process.env.DATABASE_URL;
 
 const initDB = async () => {
 
-    const db = await mysql.createConnection({
-        host: db_host,
-        user: db_user,
-        password: db_password
-    });
-
-    await db.query(`CREATE DATABASE IF NOT EXISTS ${db_name}`);
-    await db.changeUser({ database: db_name });
+    const db = await mysql.createConnection(DbUrl);
 
     for (let table of tables) {
         await db.query(table);
