@@ -24,6 +24,8 @@ app.use(express.json({ limit: '50mb' }));
 
 const port = process.env.PORT || 5000;
 const secret_key = process.env.SECRET_KEY;
+const gmail_acc = process.env.gmail_acc;
+const gmail_pass = process.env.gmail_pass;
 
 //mail sent congig
 const postman = mailer.createTransport({
